@@ -1,7 +1,6 @@
 (ns clj-maxmind-geoip.core-test
-  (:use clojure.test
+  (:use midje.sweet
         clj-maxmind-geoip.core))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(fact "FIXME, I fail"
+  (= 0 1) => true)
