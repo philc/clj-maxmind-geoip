@@ -12,9 +12,14 @@ Add this dependency to your `:dependencies` array in your Lein .project file:
     [clj-maxmind-geoip "0.1.0-SNAPSHOT"]
 
     (require '[clj-maxmind-geoip.core :as geoip])
-    (geoip/init-geoip "path-to-your-database.dat")
+    (geoip/init-geoip "path/to/GeoIp.dat")
     (geoip/lookup-country "12.207.22.244")
-      => {:code "USA", :name "United States"}
+      => {:code "US", :name "United States"}
+
+    (geoip/init-geoip "path/to/GeoLiteCity.dat")
+    (geoip/lookup-location "12.207.22.244")
+      => {:country-code "US", :country-name "United States", :region-code "CA", :region-name "California",
+          :city "Palo Alto", :postal-code "94301", :latitude 37.441895, :longitude -122.143005}
 
 # Developing
 The Maxmind Java API source is a dependency of this project. To get it and build it:
