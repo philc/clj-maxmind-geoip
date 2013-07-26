@@ -40,4 +40,5 @@
      :city (.city result)
      :postal-code (.postalCode result)
      :latitude (.latitude result)
-     :longitude (.longitude result)}))
+     :longitude (.longitude result)
+     :dma-code (.dma_code result)}))
