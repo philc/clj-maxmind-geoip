@@ -29,7 +29,7 @@
 (defn lookup-location
   "Lookup location information for an IP address. Only available when querying a GeoIP City database.
   Returns a map of the following location info, or nil if none found:
-  {:country-code, :country-name, :region-code, :region-name, :city, :postal-code, :latitude, :longitude}"
+  {:country-code, :country-name, :region-code, :region-name, :city, :postal-code, :latitude, :longitude, :dma-code}"
   [^String ip]
   (when-let [^com.maxmind.geoip.Location result
              (.getLocation ^com.maxmind.geoip.LookupService @lookup-service ip)]
