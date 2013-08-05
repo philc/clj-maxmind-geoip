@@ -27,7 +27,7 @@ Add this dependency to your `:dependencies` array in your Lein .project file:
 # Developing
 The Maxmind Java API source is a dependency of this project. To get it and build it:
 
-    git submodule init && git submodule udpate
+    git submodule init && git submodule update
     lein javac
 
 ## License

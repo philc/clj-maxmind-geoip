@@ -6,6 +6,5 @@
   ; We compile-in the Maxmind Java APIs. "lein javac" to compile them.
   :java-source-paths ["vendor/maxmind_geoip_api_java/source"]
   :dependencies [[org.clojure/clojure "1.4.0"]]
-  :profiles {:dev {:dependencies [[midje "1.4.0"]
-                                  [bultitude "0.1.7"]] ; Required for midje
+  :profiles {:dev {:dependencies [[midje "1.5.1"]]
                    :plugins [[lein-midje "2.0.4"]]}})

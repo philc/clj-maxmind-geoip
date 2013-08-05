@@ -3,6 +3,7 @@
 (ns clj-maxmind-geoip.core
   (:import com.maxmind.geoip.LookupService
            com.maxmind.geoip.regionName
+           java.io.File
            java.util.Locale))
 
 (set! *warn-on-reflection* true)
@@ -11,10 +12,18 @@
 
 (def ^:private lookup-service (atom nil))
 
-(defn init-geoip
-  "- database-path: the country edition of the maxmind geoip database."
+(defmulti init-geoip
+  "- database: the country edition of the maxmind geoip database. Can be either a File or a String."
+  class)
+
+(defmethod init-geoip String
   [^String database-path]
   (let [service (LookupService. database-path ^int (:memory geoip-access-modes))]
+    (swap! lookup-service (constantly service))))
+
+(defmethod init-geoip File
+  [^File database-file]
+  (let [service (LookupService. database-file ^int (:memory geoip-access-modes))]
     (swap! lookup-service (constantly service))))
 
 (defn lookup-country
