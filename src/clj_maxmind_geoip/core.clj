@@ -12,6 +12,8 @@
 
 (def ^:private lookup-service (atom nil))
 
+; NOTE: We define init-geoip as a multimethod so that we can provide the contract of accepting either a
+; string or file while still preventing reflection.
 (defmulti init-geoip
   "- database: the country edition of the maxmind geoip database. Can be either a File or a String."
   class)
