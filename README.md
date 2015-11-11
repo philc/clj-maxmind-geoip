@@ -1,3 +1,7 @@
+# Deprecated
+
+See [liftoffio/geoip](https://github.com/liftoffio/geoip).
+
 # clj-maxmind-geoip
 
 At the moment this is a very trivial Clojure wrapper around [Maxmind's GeoIP Java
